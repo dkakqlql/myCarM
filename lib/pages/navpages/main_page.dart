@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tutorial/pages/navpages/bar_item_page.dart';
-import 'package:tutorial/pages/navpages/home_page.dart';
+import 'package:tutorial/pages/home_page.dart';
 import 'package:tutorial/pages/navpages/my_page.dart';
 import 'package:tutorial/pages/navpages/search_page.dart';
 
@@ -42,10 +42,10 @@ class _MainPageState extends State<MainPage> {
         showSelectedLabels: false,
         elevation: 0,
         items: [
-          BottomNavigationBarItem(title: Text("Home"), icon: Icon(Icons.apps)),
-          BottomNavigationBarItem(title: Text("Bar"), icon: Icon(Icons.bar_chart_sharp)),
-          BottomNavigationBarItem(title: Text("Search"), icon: Icon(Icons.search)),
-          BottomNavigationBarItem(title: Text("My"), icon: Icon(Icons.person)),
+          BottomNavigationBarItem(label: "Home", icon: Icon(Icons.apps)),
+          BottomNavigationBarItem(label: "Bar", icon: Icon(Icons.bar_chart_sharp)),
+          BottomNavigationBarItem(label: "Search", icon: Icon(Icons.search)),
+          BottomNavigationBarItem(label: "My", icon: Icon(Icons.person)),
         ],
       ),
     );

@@ -12,6 +12,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  var image = {
+    "cars.jfif":"cars",
+    "car.jfif":"car",
+    "images.jfif":"image"
+  };
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 3, vsync: this);
@@ -110,6 +115,46 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
           ),
           SizedBox(height: 20),
+          Container(
+            height: 120,
+            width: double.maxFinite,
+            margin: const EdgeInsets.only(left: 20),
+            child: ListView.builder(
+                itemCount: 3,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (_, index) {
+                  return Container(
+                    margin: const EdgeInsets.only(right: 30),
+                    child: Column(
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(right: 5),
+                          width: 80,
+                          height: 80,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.white,
+                            image: DecorationImage(
+                                image: AssetImage(
+                                    image.keys.elementAt(index),
+                                ),
+                                fit: BoxFit.cover
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Container(
+                          child: AppText(
+                            text: image.values.elementAt(index),
+                            color: AppColors.textColor2,
+                          ),
+                        )
+                      ],
+                    ),
+                  );
+                }
+            ),
+          )
           // Another TabBar
         ]
       ),
@@ -123,7 +168,6 @@ class CircleTabIndicator extends Decoration {
   CircleTabIndicator({required this.color, required this.radius});
   @override
   BoxPainter createBoxPainter([VoidCallback? onChanged]) {
-    // TODO: implement createBoxPainter
     return _CirclePainter(color: color, radius: radius);
   }
 }
@@ -138,7 +182,6 @@ class _CirclePainter extends BoxPainter {
     _paint.color = color;
     _paint.isAntiAlias = true;
     final Offset circleOffset = Offset(configuration.size!.width/2 - radius/2, configuration.size!.height - radius);
-
     canvas.drawCircle(offset+circleOffset, radius, _paint);
   }
 

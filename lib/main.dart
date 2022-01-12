@@ -1,6 +1,8 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:tutorial/pages/detail_page.dart';
+import 'package:tutorial/pages/home_page.dart';
 import 'package:tutorial/pages/navpages/main_page.dart';
 import 'package:tutorial/pages/welcome_page.dart';
 
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MainPage()
+      home: DetailPage()
     );
   }
 }
